@@ -9,7 +9,7 @@ class FiguresController < ApplicationController
     erb :'figures/new'
   end
 
-   post '/figures' do
+  post '/figures' do
     figure = Figure.create(name: params["figure"]["name"])
     if params["figure"]["title_ids"] != nil
       figure.title_ids += params["figure"]["title_ids"]
@@ -26,10 +26,11 @@ class FiguresController < ApplicationController
     figure.save
      redirect to "/figures/:id"
   end
+
    get '/figures/:id' do
     @figure = Figure.find_by_id(params[:id])
      erb :'figures/show'
-  end
+   end
    get '/figures/:id/edit' do
     @figure = Figure.find_by_id(params[:id])
      erb :'figures/edit'
