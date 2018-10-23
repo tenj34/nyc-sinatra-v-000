@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
       @figure.landmarks << landmark
     end
   redirect to "/figures/#{@figure.id}"
-end
+  end
  patch '/landmarks/:id' do
   @landmark = Landmark.find_by_id(params[:id])
   @landmark.update(name: params[:landmark][:name], year_completed: params[:landmark][:year_completed])
